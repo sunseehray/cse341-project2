@@ -1,0 +1,5 @@
+### GET main
+GET http://localhost:3000
+
+### GET members
+GET http://localhost:3000/members
