@@ -3,3 +3,12 @@ GET http://localhost:3000
 
 ### GET members
 GET http://localhost:3000/members
+
+### POST members
+POST http://localhost:3000/members HTTP/1.1
+Content-Type: application/json
+{
+    "username": "sample",
+    "email": "sample",
+    "birthday": "sample"
+}
