@@ -54,7 +54,10 @@ const updateSupplier = async (req, res) => {
             phone: req.body.phone,
             url: req.body.url
         };
-        await mongodb.getDatabase().db().collection('supplier').replaceOne({ _id: supplierId }, supplier);            
+        const response = await mongodb.getDatabase().db().collection('supplier').replaceOne({ _id: supplierId }, supplier);            
+        if (response.modifiedCount > 0) {
+            res.status(204).send();
+        }
     } catch (error) {
         res.status(500).json(`Error occured: ${error}`);
     }
@@ -64,7 +67,10 @@ const deleteSupplier = async (req, res) => {
     //#swagger.tags=['Suppliers']
     try {
         const supplierId = new ObjectId(req.params.id);
-        await mongodb.getDatabase().db().collection('supplier').deleteOne({ _id: supplierId });            
+        const response = await mongodb.getDatabase().db().collection('supplier').deleteOne({ _id: supplierId });            
+        if (response.deletedCount > 0) {
+            res.status(204).send();
+        }
     } catch (error) {
         res.status(500).json(`An error occured: ${error}`);
     }

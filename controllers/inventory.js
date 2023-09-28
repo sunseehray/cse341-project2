@@ -71,7 +71,10 @@ const deleteItem = async (req, res) => {
     //#swagger.tags=['Inventory']
     try {
         const itemId = new ObjectId(req.params.id);
-        await mongodb.getDatabase().db().collection('inventory').deleteOne({ _id: itemId });            
+        const response = await mongodb.getDatabase().db().collection('inventory').deleteOne({ _id: itemId });            
+        if (response.deletedCount > 0) {
+            res.status(204).send();
+        }
     } catch (error) {
         res.status(500).json(`An error occured: ${error}`);
     }

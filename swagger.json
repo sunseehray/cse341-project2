@@ -25,16 +25,6 @@
         }
       }
     },
-    "/api-docs": {
-      "get": {
-        "description": "",
-        "responses": {
-          "default": {
-            "description": ""
-          }
-        }
-      }
-    },
     "/inventory/": {
       "get": {
         "tags": [
@@ -192,6 +182,9 @@
           }
         ],
         "responses": {
+          "204": {
+            "description": "No Content"
+          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -228,25 +221,16 @@
             "schema": {
               "type": "object",
               "properties": {
-                "sku": {
+                "supplier": {
                   "example": "any"
                 },
-                "name": {
+                "address": {
                   "example": "any"
                 },
-                "description": {
+                "phone": {
                   "example": "any"
                 },
-                "unit": {
-                  "example": "any"
-                },
-                "unit_weight": {
-                  "example": "any"
-                },
-                "unit_cost": {
-                  "example": "any"
-                },
-                "stock": {
+                "url": {
                   "example": "any"
                 }
               }
@@ -307,25 +291,16 @@
             "schema": {
               "type": "object",
               "properties": {
-                "sku": {
+                "supplier": {
                   "example": "any"
                 },
-                "name": {
+                "address": {
                   "example": "any"
                 },
-                "description": {
+                "phone": {
                   "example": "any"
                 },
-                "unit": {
-                  "example": "any"
-                },
-                "unit_weight": {
-                  "example": "any"
-                },
-                "unit_cost": {
-                  "example": "any"
-                },
-                "stock": {
+                "url": {
                   "example": "any"
                 }
               }
@@ -355,6 +330,9 @@
           }
         ],
         "responses": {
+          "204": {
+            "description": "No Content"
+          },
           "500": {
             "description": "Internal Server Error"
           }
