@@ -11,13 +11,17 @@ const getAll = async (req, res) => {
 };
 
 const getSingle = async (req, res) => {
-    //#swagger.tags=['Users']
-    const itemId = new ObjectId(req.params.id);
-    const result = await mongodb.getDatabase().db().collection('inventory').find({ _id: itemId });
-    result.toArray().then((items) => {
-        res.setHeader('Content-Type', 'application/json');
-        res.status(200).json(items[0]);
-    });
+    //#swagger.tags=['Inventory']
+    try {
+        const itemId = new ObjectId(req.params.id);
+        const result = await mongodb.getDatabase().db().collection('inventory').find({ _id: itemId });
+        result.toArray().then((items) => {
+            res.setHeader('Content-Type', 'application/json');
+            res.status(200).json(items[0]);
+        });            
+    } catch (error) {
+        res.status(500).json(`An error occured: ${error}`);
+    }
 };
 
 const createItem = async (req, res) => {
@@ -60,15 +64,14 @@ const updateItem = async (req, res) => {
 };
 
 const deleteItem = async (req, res) => {
-    //#swagger.tags=['Items']
-    const itemId = new ObjectId(req.param.id);
-    const response = await mongodb.getDatabase().db().collection('inventory').deleteOne({ _id: itemId });
-    if (response.deletedCount > 0) {
-        res.status(204).send();
-    } else {
-        res.status(500).json(response.error || 'Some error occured while deleting the item.')
+    //#swagger.tags=['Inventory']
+    try {
+        const itemId = new ObjectId(req.params.id);
+        await mongodb.getDatabase().db().collection('inventory').deleteOne({ _id: itemId });            
+    } catch (error) {
+        res.status(500).json(`An error occured: ${error}`);
     }
-}
+};
 
 
 module.exports = {
