@@ -19,10 +19,10 @@ Content-Type: application/json
 }
 
 ### GET single item
-GET http://localhost:3000/inventory/6514fd5613ad481905b14c2e
+GET http://localhost:3000/inventory/65153a79d0deaddc07621db8
 
 ### PUT / Update Item
-PUT http://localhost:3000/inventory/651521ebd3adbe49b42f795c HTTP/1.1
+PUT http://localhost:3000/inventory/65153a79d0deaddc07621db8 HTTP/1.1
 Content-Type: application/json
 
 {
@@ -36,8 +36,36 @@ Content-Type: application/json
 }
 
 ### Delete Item
-DELETE http://localhost:3000/inventory/65152dd2da80d1559e13300c
+DELETE http://localhost:3000/inventory/65153a79d0deaddc07621db8
 
 
 ### Get all suppliers
-GET http://localhost:3000/suppliers
+GET http://localhost:3000/supplier
+
+### Create one supplier
+POST http://localhost:3000/supplier HTTP/1.1
+Content-Type: application/json
+
+{
+    "supplier": "post",
+    "address": "post",
+    "phone": "123-4567",
+    "url": "https://www.google.com/"
+}
+
+### Get one supplier by id
+GET http://localhost:3000/supplier/651537497df0e851d5de26a0
+
+### update one supplier
+PUT http://localhost:3000/supplier/651537497df0e851d5de26a0 HTTP/1.1
+Content-Type: application/json
+
+{
+    "supplier": "put",
+    "address": "put",
+    "phone": "123-4567",
+    "url": "https://www.google.com/"
+}
+
+### Delete one supplier
+DELETE http://localhost:3000/supplier/651537497df0e851d5de26a0
