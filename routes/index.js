@@ -6,7 +6,8 @@ router
         //#swagger.tags=['Sunseehray Tirazona']
         res.send('Sunseehray Tirazona');
     })
-    .use('/inventory', require('./inventory'));
+    .use('/inventory', require('./inventory'))
+    .use('/supplier', require('./supplier'));
 
 module.exports = router;
 

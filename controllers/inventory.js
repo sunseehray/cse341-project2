@@ -1,16 +1,20 @@
 const mongodb = require('../data/database');
 const ObjectId = require('mongodb').ObjectId;
 
-const getAll = async (req, res) => {
+const getAllItems = async (req, res) => {
     //#swagger.tags=['Inventory']
-    const result = await mongodb.getDatabase().db().collection('inventory').find();
-    result.toArray().then((items) => {
-        res.setHeader('Content-Type', 'application/json');
-        res.status(200).json(items);
-    });
+    try {
+        const result = await mongodb.getDatabase().db().collection('inventory').find();
+        result.toArray().then((items) => {
+            res.setHeader('Content-Type', 'application/json');
+            res.status(200).json(items);
+        });            
+    } catch (error) {
+        res.status(500).json(`An error occured: ${error}`);
+    }
 };
 
-const getSingle = async (req, res) => {
+const getSingleItem = async (req, res) => {
     //#swagger.tags=['Inventory']
     try {
         const itemId = new ObjectId(req.params.id);
@@ -26,7 +30,7 @@ const getSingle = async (req, res) => {
 
 const createItem = async (req, res) => {
     //#swagger.tags=['Inventory']
-    const item = {
+      const item = {
         sku: req.body.sku,
         name: req.body.name,
         description: req.body.description,
@@ -75,8 +79,8 @@ const deleteItem = async (req, res) => {
 
 
 module.exports = {
-    getAll,
-    getSingle,
+    getAllItems,
+    getSingleItem,
     createItem,
     updateItem,
     deleteItem
