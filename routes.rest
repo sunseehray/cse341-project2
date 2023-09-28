@@ -1,15 +1,36 @@
 ### GET main
 GET http://localhost:3000
 
-### GET members
-GET http://localhost:3000/members
+### GET all Items
+GET http://localhost:3000/inventory
 
-### POST members
-POST http://localhost:3000/members HTTP/1.1
+### GET single item
+GET http://localhost:3000/inventory/651521ebd3adbe49b42f795c
+
+### POST / Create Item
+POST http://localhost:3000/inventory HTTP/1.1
 Content-Type: application/json
 
 {
-    "username": "sample",
-    "email": "sample",
-    "birthday": "sample"
+    "sku": "any-001",
+    "name": "any",
+    "description": "any",
+    "unit": "kg",
+    "unit_weight": 1,
+    "unit_cost": 1,
+    "stock": 1
+}
+
+### PUT / Update Item
+PUT http://localhost:3000/inventory/651521ebd3adbe49b42f795c HTTP/1.1
+Content-Type: application/json
+
+{
+    "sku": "put-001",
+    "name": "put",
+    "description": "put",
+    "unit": "kg",
+    "unit_weight": 1,
+    "unit_cost": 1,
+    "stock": 1
 }
