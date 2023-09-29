@@ -5,7 +5,7 @@
     "description": "Pantry API",
     "version": "1.0.0"
   },
-  "host": "https://pantry-ilig.onrender.com",
+  "host": "pantry-ilig.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
