@@ -5,8 +5,8 @@ const doc = {
         title: 'Pantry API',
         description: 'Pantry API'
     },
-    host: 'localhost:3000',
-    schemes: ['http', 'https']
+    host: 'https://pantry-ilig.onrender.com',
+    schemes: ['https']
 };
 
 const outputFile = './swagger.json';
