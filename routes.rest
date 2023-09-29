@@ -13,8 +13,8 @@ Content-Type: application/json
     "name": "any",
     "description": "any",
     "unit": "kg",
-    "unit_weight": 1,
-    "unit_cost": 1,
+    "unit_weight": "1",
+    "unit_cost": "abc",
     "stock": 1
 }
 
@@ -36,7 +36,7 @@ Content-Type: application/json
 }
 
 ### Delete Item
-DELETE http://localhost:3000/inventory/65153a79d0deaddc07621db8
+DELETE http://localhost:3000/inventory/6516b213fbf65b0141241aef
 
 
 ### Get all suppliers
