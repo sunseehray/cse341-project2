@@ -8,7 +8,8 @@
   "host": "localhost:3000",
   "basePath": "/",
   "schemes": [
-    "http"
+    "http",
+    "https"
   ],
   "paths": {
     "/logout": {
@@ -16,16 +17,6 @@
         "tags": [
           "Index"
         ],
-        "description": "",
-        "responses": {
-          "default": {
-            "description": ""
-          }
-        }
-      }
-    },
-    "/api-docs": {
-      "get": {
         "description": "",
         "responses": {
           "default": {
