@@ -5,7 +5,7 @@ const doc = {
         title: 'Pantry API',
         description: 'Pantry API'
     },
-    host: 'localhost:3000',
+    host: 'pantry-ilig.onrender.com',
     schemes: ['http', 'https']
 };
 
